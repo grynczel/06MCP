@@ -14,14 +14,6 @@ public class CT39V206 {
 	// Cette méthode ne modifie pas les éléments du tableau t.
 	// Elle renvoie la somme de la sous-sequence maximum de t.
 	public static long maxSum(int[] t) {
-		if (t == null) {
-			throw new IllegalArgumentException(
-					"Le parametre t ne peut pas etre null");
-		}
-		if (t.length == 0) {
-			throw new IllegalArgumentException(
-					"Le vecteur t ne peut pas etre vide");
-		}
 		long max = 0;
 		long sum = 0;
 		for (int i = 0; i < t.length; i++) {
