@@ -1,17 +1,17 @@
-//Ce fichier est encodé en UTF8.
+//Ce fichier est encodÃ© en UTF8.
 
 //Grynczel Wojciech
 //Russello Helena
 //Visschers Marie
 //Wenders Audrey
 
-// Remplacez les deux caractères XX par votre numéro de groupe encodé sur deux chiffres!
+// Remplacez les deux caractÃ¨res XX par votre numÃ©ro de groupe encodÃ© sur deux chiffres!
 public class CT39V206 {
 
-	// Le paramètre t n'est pas null.
-	// De plus, il représente un vecteur de n entiers relatifs.
+	// Le paramÃ¨tre t n'est pas null.
+	// De plus, il reprÃ©sente un vecteur de n entiers relatifs.
 
-	// Cette méthode ne modifie pas les éléments du tableau t.
+	// Cette mÃ©thode ne modifie pas les Ã©lÃ©ments du tableau t.
 	// Elle renvoie la somme de la sous-sequence maximum de t.
 	public static long maxSum(int[] t) {
 		long max = 0;
@@ -28,36 +28,33 @@ public class CT39V206 {
 	}
 
 	// ***********************************************************************************
-	// Expliquez comment vous avez développé ce programme
+	// Expliquez comment vous avez dÃ©veloppÃ© ce programme
 	/*
-	 * Nous avons besoin de deux variables pour r�soudre ce probl�me : une
-	 * variable qui enregistre la somme maximum (long max) et une autre qui
-	 * contient la valeur maximum apr�s l'ajout de la valeur suivante dans le
-	 * tableau (long sum). Si "sum" est sup�rieure � "max", �a signifie qu'il
+	 * Cette version est presque identique à la version 1 de la méthode.
+	 * En effet, nous avons également besoin de deux variables pour résoudre ce problème : 
+	 * une variable qui calcule la somme maximale et une autre qui
+	 * contient la valeur maximale après l'ajout (dans la somme) de la valeur suivante dans le
+	 * tableau. Si "sum" est supérieure à "max", ça signifie qu'il
 	 * s'agit de la nouvelle valeur maximale donc "max" prend cette valeur;
-	 * sinon, "max" reste inchang�e. D�s que "sum" contient une somme n�gative,
-	 * celle-ci est remise � z�ro. (En effet, une somme commen�ant par un
-	 * chiffre n�gatif ne sera jamais plus int�ressante qu�une somme commen�ant
-	 * par 0.) La diff�rence entre la version 1 (sous-s�quences vide non
-	 * accept�es) et la version 2 (sous-s�quences vide accept�es) est
-	 * l'initialisation des variables au d�but du programme : max contient
-	 * d'abord le premier �l�ment du tableau dans la version 1 et z�ro dans la
-	 * version 2. En effet, si aucune valeur positive n'existe dans le tableau,
-	 * la version 2 affichera z�ro.
+	 * sinon, "max" reste inchangée. Dès que "sum" contient une somme négative,
+	 * celle-ci est remise à zéro. À la différence de la version 1 (sous-séquences vide non
+	 * acceptées), la version 2 (sous-séquences vide acceptées) initialise le max à zéro.
+	 * En effet, si aucune valeur positive n'existe dans le tableau,
+	 * la version 2 affichera zéro alors que la version 1 affichera le plus petit nombre négatif
+	 * du tableau.
 	 */
 
 	// ***********************************************************************************
-	// Expliquez pourquoi vous pensez que votre méthode est correcte
+	// Expliquez pourquoi vous pensez que votre mÃ©thode est correcte
 	/*
-	 * Nous avons fait plusieurs tests afin de s�assurer que notre m�thode est
-	 * correcte. 
-	 * Voici quelques exemples : 
-	 * Que des nombres n�gatifs [-1, -5, -26, -18] : 
-	 * 		la version 1 retourne la valeur -1 tandis que la version 2 retourne 0. 
+	 * Notre méhode respecte toutes les spécifications ce qui nous permet de penser que celle-ci est correcte.
+	 * De plus nous avons réalisé plusieurs tests afin de nous assurer du bon fonctionnement notre méthode. 
+	 * Voici quelques exemples des tests effectués : 
+	 * Que des nombres négatifs [-1, -5, -26, -18] : 
+	 * 		la méthode maxSum retourne la valeur 0. 
 	 * Que des nombres positifs [1, 5, 10, 65] : 
-	 * 		les 2 versions retournent la valeur 81 
-	 * Des nombres n�gatifs et des positifs [-4, -5, 3, 7, -5, 100, -100, -100] : 
-	 * 		les 2 versions retournent la valeur 105
-	 * En plus de �a elle respecte toutes les sp�cifications.
+	 * 		la méthode maxSum retourne la valeur 81 
+	 * Des nombres négatifs et des positifs [-4, -5, 3, 7, -5, 100, -100, -100] : 
+	 * 		la méthode maxSum retourne la valeur 105
 	 */
 }
