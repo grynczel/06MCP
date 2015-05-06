@@ -65,16 +65,15 @@ public class Main {
 
 	public static int[] rotate(int[] c, int r) {
 		int[] cadran = c.clone(); // TODO A supprimer
-		int length = cadran.length;
 		int nbElemVisite = 0;
-		r = ((r % length) + length) % length;
+		r = r % cadran.length;
 
 		int i = 0, j = i, tempElement = cadran[0];
-		while (r != 0 && nbElemVisite < length) {
+		while (r != 0 && nbElemVisite < cadran.length) {
 			int position = j - r;
 
 			if (position < 0) {
-				position = position + length;
+				position = position + cadran.length;
 			}
 
 			if (i == position) {
