@@ -6,13 +6,13 @@ public class Main {
 
 	private static boolean DEBUG = false;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {		
 		if (DEBUG) {
 			// TODO Auto-generated method stub
-			int[] test0 = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
-					16, 17, 18, 19, 20, 21, 22, 23, 24 };
+			//int[] test0 = { 1, 2, 3, 4,5,6,7,8,9};
+			int[] test0 = {1,2,3,4,5,6,7};
 			System.out.println(Arrays.toString(test0) + " =>  "
-					+ Arrays.toString(rotate(test0, 10)));
+					+ Arrays.toString(rotate(test0, 3)));
 		} else {
 			int[] test = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
 			checkArray(test, 15);
@@ -62,30 +62,32 @@ public class Main {
 		}
 		System.out.println();
 	}
-
+    
 	public static int[] rotate(int[] c, int r) {
 		int[] cadran = c.clone(); // TODO A supprimer
-		int nbElemVisite = 0;
-		r = r % cadran.length;
+		int length = cadran.length;
+		r = r % length;
 
-		int i = 0, j = i, tempElement = cadran[0];
-		while (r != 0 && nbElemVisite < cadran.length) {
-			int position = j - r;
+		int i = 0, j = i, tempElement = cadran[i];
+		int position;
+		int nbElemVisite = 0;
+		while (r != 0 && nbElemVisite < length ) {
+			position = j - r;
 
 			if (position < 0) {
-				position = position + cadran.length;
+				position = position + length;
 			}
-
+			
 			if (i == position) {
 				cadran[j] = tempElement;
+				
 				i++;
 				tempElement = cadran[i];
 				j = i;
-			} else {
+			} else{
 				cadran[j] = cadran[position];
 				j = position;
 			}
-
 			nbElemVisite++;
 		}
 		return cadran;
