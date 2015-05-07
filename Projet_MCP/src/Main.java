@@ -10,7 +10,7 @@ public class Main {
 		if (DEBUG) {
 			// TODO Auto-generated method stub
 			//int[] test0 = { 1, 2, 3, 4,5,6,7,8,9};
-			int[] test0 = {1,2,3,4,5,6,7};
+			int[] test0 ={1,2,3,4,5,6,7};
 			System.out.println(Arrays.toString(test0) + " =>  "
 					+ Arrays.toString(rotate(test0, 3)));
 		} else {
@@ -65,17 +65,23 @@ public class Main {
     
 	public static int[] rotate(int[] c, int r) {
 		int[] cadran = c.clone(); // TODO A supprimer
-		int length = cadran.length;
-		r = r % length;
-
-		int i = 0, j = i, tempElement = cadran[i];
-		int position;
-		int nbElemVisite = 0;
-		while (r != 0 && nbElemVisite < length ) {
+		
+		//INIT
+		int i = 0, j = i, nbElemVisite = 0, tempElement, position;
+		if(c.length==0) {
+			r = 0;
+			tempElement = 0; //valeur sentinelle
+		}else{
+			r = r % cadran.length;
+			tempElement = cadran[0];
+		}
+		
+		while (r != 0 && nbElemVisite < cadran.length ) { // !H
+			//ITER
 			position = j - r;
 
 			if (position < 0) {
-				position = position + length;
+				position = position + cadran.length;
 			}
 			
 			if (i == position) {
@@ -90,6 +96,7 @@ public class Main {
 			}
 			nbElemVisite++;
 		}
+		//CLOT ici il n'y aura plus de return car c'est une methode void
 		return cadran;
 	}
 
