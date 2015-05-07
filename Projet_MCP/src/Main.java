@@ -6,13 +6,14 @@ public class Main {
 
 	private static boolean DEBUG = false;
 
-	public static void main(String[] args) {		
+	public static void main(String[] args) {
 		if (DEBUG) {
 			// TODO Auto-generated method stub
-			//int[] test0 = { 1, 2, 3, 4,5,6,7,8,9};
-			int[] test0 ={1,2,3,4,5,6,7};
+			// int[] test0 = { 1, 2, 3, 4,5,6,7,8,9};
+			int[] test0 = { 1, 2, 3, 4, 5, 6, 7 };
+			rotate(test0, 3);
 			System.out.println(Arrays.toString(test0) + " =>  "
-					+ Arrays.toString(rotate(test0, 3)));
+					+ Arrays.toString(test0));
 		} else {
 			int[] test = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
 			checkArray(test, 15);
@@ -36,14 +37,14 @@ public class Main {
 	private static void checkArray(int[] testArray, int n) {
 		System.out.println("Init Array : " + Arrays.toString(testArray) + "\n");
 		for (int i = 0; i < n; i++) {
-			int[] res = rotate(testArray, i);
-			System.out.print("Shift : " + i + "  "
-					+ Arrays.toString(rotate(testArray, i)));
+			int[] res = testArray.clone();
+			rotate(res, i);
+			System.out.print("Shift : " + i + "  " + Arrays.toString(res));
 			boolean toutOK = true;
 			int positionA = -87;
 			int positionB = -48;
-			for (int j = 0; j < testArray.length; j++) {
-				int a = calculerPosition(j + i, testArray.length);
+			for (int j = 0; j < res.length; j++) {
+				int a = calculerPosition(j + i, res.length);
 				if (res[a] != testArray[j]) {
 					toutOK = false;
 					positionA = a;
@@ -62,42 +63,38 @@ public class Main {
 		}
 		System.out.println();
 	}
-    
-	public static int[] rotate(int[] c, int r) {
-		int[] cadran = c.clone(); // TODO A supprimer
-		
-		//INIT
+
+	public static void rotate(int[] c, int r) {
+		// INIT
 		int i = 0, j = i, nbElemVisite = 0, tempElement, position;
-		if(c.length==0) {
+		if (c.length == 0) {
 			r = 0;
-			tempElement = 0; //valeur sentinelle
-		}else{
-			r = r % cadran.length;
-			tempElement = cadran[0];
+			tempElement = 0; // valeur sentinelle
+		} else {
+			r = r % c.length;
+			tempElement = c[0];
 		}
-		
-		while (r != 0 && nbElemVisite < cadran.length ) { // !H
-			//ITER
+
+		while (r != 0 && nbElemVisite < c.length) { // !H
+			// ITER
 			position = j - r;
 
 			if (position < 0) {
-				position = position + cadran.length;
+				position = position + c.length;
 			}
-			
+
 			if (i == position) {
-				cadran[j] = tempElement;
-				
+				c[j] = tempElement;
+
 				i++;
-				tempElement = cadran[i];
+				tempElement = c[i];
 				j = i;
-			} else{
-				cadran[j] = cadran[position];
+			} else {
+				c[j] = c[position];
 				j = position;
 			}
 			nbElemVisite++;
 		}
-		//CLOT ici il n'y aura plus de return car c'est une methode void
-		return cadran;
 	}
 
 	private static int calculerPosition(int position, int size) {
