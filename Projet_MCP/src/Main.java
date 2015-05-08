@@ -74,11 +74,10 @@ public class Main {
 			r = r % c.length;
 			tempElement = c[0];
 		}
-
-		while (r != 0 && nbElemVisite < c.length) { // !H
+		position = j - r;
+		
+		while (!(r == 0 || nbElemVisite >= c.length)) { // !H
 			// ITER
-			position = j - r;
-
 			if (position < 0) {
 				position = position + c.length;
 			}
@@ -94,6 +93,7 @@ public class Main {
 				j = position;
 			}
 			nbElemVisite++;
+			position = j - r;
 		}
 	}
 
