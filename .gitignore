@@ -1,3 +1,7 @@
 .metadata/
 .recommenders/
 Projet_MCP/.metadata/
+Projet_de_cadran/*.aux
+Projet_de_cadran/*.log
+Projet_de_cadran/*.toc
+Projet_de_cadran/*.gz
