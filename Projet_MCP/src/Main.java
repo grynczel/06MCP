@@ -66,31 +66,30 @@ public class Main {
 
 	public static void rotate(int[] c, int r) {
 		// INIT
-		int i = 0, j = i, nbElemVisite = 0, tempElement, position;
+		int i, j, nbElemVisite, position, tmp;
 		if (c.length == 0) {
 			r = 0;
-			tempElement = 0; // valeur sentinelle
+			tmp = 0; // valeur sentinelle
 		} else {
 			r = r % c.length;
-			tempElement = c[0];
+			tmp = c[0];
 		}
-		position = j - r;
-		
-		while (!(r == 0 || nbElemVisite >= c.length)) { // !H
+		i = 0; j = i; nbElemVisite = 0; position =  j - r;
+		while (r != 0 && nbElemVisite < c.length) { // !H
 			// ITER
 			if (position < 0) {
 				position = position + c.length;
 			}
 
 			if (i == position) {
-				c[j] = tempElement;
+				c[j] = tmp;
 
 				i++;
-				tempElement = c[i];
+				tmp = c[i];
 				j = i;
 			} else {
 				c[j] = c[position];
-				j = position;
+				j  = position;
 			}
 			nbElemVisite++;
 			position = j - r;
